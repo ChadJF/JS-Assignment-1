@@ -4,19 +4,33 @@
         // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
         //your code...
-        function tekCamp() {}
-        // tekCamp();
 
+        function tekCamp() {
+            for (i=1; i<=100; i++){
+                if (i%3 == 0){
+                    console.log("TEK")
+                }
+                else if (i%5 == 0){
+                    console.log("camp")
+                }
+                else if (i<=100) {
+                    console.log(i)
+                }
+            }
+        }
+        tekCamp();
+        
 
 
         /************************************************************************************/
         //Write a function that converts the current temperature from Fahrenheit to Celsius. 
 
         //your code...
-        function farenheitCelsius() {
-
+        function farenheitCelsius(fahr) {
+            cel = (fahr - 32) * (5/9)
+            return cel
         }
-
+        console.log(farenheitCelsius(43))
 
 
 
@@ -24,10 +38,11 @@
         //Write a function that converts the Celsius temperature back to Fahrenheit. 
 
         //your code...
-        function celsiusFarenheit() {
-
+        function celsiusFarenheit(cel) {
+            fahr = ((cel * (9/5)) + 32)
+            return fahr
         }
-
+        console.log(celsiusFarenheit(56))
 
 
 
@@ -37,7 +52,10 @@
 
         //your code...
         function canVote(age) {
-            return false;
+            if (age >= 18) {
+                return true;
+            }
+            else return false;
         }
 
 
@@ -50,9 +68,10 @@
         // Write a function that converts a string to an array. It should return an array.  
 
         //your code...
-        function strToArr() {
-            return [];
+        function strToArr(str) {
+            return newArray = Array.from(str);
         }
+        console.log(strToArr("Placeholder text"));
 
 
 
@@ -64,11 +83,17 @@
         // Write a function that reverses your telephone number.  It should return the reversed telephone number.
 
         //your code...
-        function reversePhone(number) {
-            
+
+        function reversePhone(num) {
+            num = num.toString();
+            num = num.split("");
+            num = num.reverse();
+            num = num.join("");
+
+            console.log(num);
         }
 
-
+        reversePhone(1234567891);
 
 
 
@@ -77,7 +102,23 @@
 
         //your code...
 
+        function createCar(){
+            var car = {
+                make: "x",
+                model: "y",
+                year: "z",
+                color: "w",
+            }
+            var newCar = car;
+            newCar.make = "Nissan";
+            newCar.model = "Rouge";
+            newCar.year = "2010";
+            newCar.color = "Silver";
 
+            console.log(newCar);
+        }
+
+        createCar();
 
 
 
@@ -89,9 +130,18 @@
 
         //your code...
 
+        let arr = [5, 17, 30, 42];
 
-
-
+        function orderList(){
+            for (i=0; i<arr.length; i++){
+                if (arr[i]%2 === 0){
+                    console.log(arr[i]+" , even");
+                } else {
+                    console.log(arr[i] + " , odd");
+                }
+            }  
+        }
+        orderList();
 
 
 
@@ -100,12 +150,19 @@
         // Write a "for" loop that console.log()'s the first value in the  array, and every 3rd number, i.e. 0, 3, 6, 9: the zeroth, third, sixth, and ninth values.
 
         //your code...
+        for (let i = 0; i<numbers.length; i++){
+            if(i%3===0){
+                console.log(i);
+            }
+        }
 
 
 
         /************************************************************************************/
         const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {program : 'TEKcamp'} ];
         //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+
+        
 
         const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
         // Using both the foodArray and the adjectiveArray, write "for" loop that console.log()'s a sentence for each corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  i.e. "Potatoes are salty", "Lemon is sour".
@@ -122,6 +179,11 @@
 
         //your code...
 
+        let i=0
+        while (i<10) {
+            console.log(" the value of i in the loop is : " + i);
+            i++;
+        }
 
 
 
@@ -131,25 +193,55 @@
 
         //your code...
 
+        let par = 0;
+        let exp = 0;
+        let multi = 0;
+        let divis = 0;
+        function step1() {
+            par = 30 + 2;
+            console.log("The result of the first operation is "+par);
+        }
+        function step2() {
+            exp = 10 ** 2;
+            console.log("The result of the second operation is "+exp);
+        }
+        function step3() {
+            multi = par * 20;
+            console.log("The result of the third operation is "+multi);
+        }
+        function step4() {
+            divis = multi / exp;
+            console.log("The result of the fourth operation is "+divis);
+        }
+        step1();
+        step2();
+        step3();
+        step4();
+
+
 
         /************************************************************* */
         //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation values : 
 
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
-        // 20
-        // 0
-        // "zero";
+        console.log(`${!!20 ? "truthy" : "falsy"} , because positive, non-0 number`)
+        console.log(`${!!0 ? "truthy" : "falsy"} , because it is a 0 number`)
+        console.log(`${!!"zero" ? "truthy" : "falsy"} , because it is a non-number`)
+        const zero = 20;
+        console.log(`${!!zero ? "truthy" : "falsy"} , because all predefined variables are truthy`)
         // const zero = 20;
         // null
         // "0"
         // !""
         // {}
+        console.log(`${!!(() => console.log("hello TEKcamp!")) ? "truthy" : "falsy"} , because it is a function`)
         // () => {console.log("hello TEKcamp!");
         // 125
         // undefined
         // ""
 
+        
 
 
 
@@ -252,6 +344,13 @@
         // Square every number in the array.  Store the squares in a new array.
 
         //your code...
+        const nums = [1,2,3,4,5];
+        function square(arr) {
+            return arr.map(function (x){
+                return Math.pow(x, 2);
+            });
+        }
+        console.log(square(nums));
 
 
 
